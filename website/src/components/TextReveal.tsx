@@ -29,7 +29,7 @@ export function TextReveal({ text, delay = 0 }: { text: string; delay?: number }
 
   return (
     <motion.div
-      style={{ overflow: "hidden", display: "flex", flexWrap: "wrap", margin: "-0.2em 0" }}
+      style={{ overflow: "hidden", display: "flex", flexWrap: "wrap", margin: "-0.4em 0", padding: "0.4em 0" }}
       variants={container}
       initial="hidden"
       whileInView="visible"
@@ -38,7 +38,7 @@ export function TextReveal({ text, delay = 0 }: { text: string; delay?: number }
       {words.map((word, index) => (
         <motion.span
           variants={child}
-          style={{ marginRight: "0.25em", padding: "0.2em 0", display: "inline-block" }}
+          style={{ marginRight: "0.25em", display: "inline-block" }}
           key={index}
         >
           {word}

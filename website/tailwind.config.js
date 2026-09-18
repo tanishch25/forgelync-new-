@@ -12,10 +12,16 @@ export default {
         primary: '#fafaf9',
         secondary: '#a1a1aa',
         accent: '#ff4d00',
+        lumina: {
+          bg: '#F5F5F0',
+          text: '#1C1C19',
+          accent: '#A68A64', // Subtle muted gold
+        }
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'sans-serif'],
         body: ['"Plus Jakarta Sans"', 'sans-serif'],
+        serif: ['"Cormorant Garamond"', 'serif'],
       },
       letterSpacing: {
         tighter: '-0.04em',

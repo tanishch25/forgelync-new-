@@ -1,15 +1,30 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 
 const services = [
-  { num: "01", title: "DIGITAL ARCHITECTURE", desc: "We construct bespoke web applications with uncompromising structural integrity. Performance meets award-winning design." },
-  { num: "02", title: "WEBGL & SHADERS", desc: "Melting GPUs with 60fps cinematic 3D experiences, custom GLSL pipelines, and real-time physics." },
-  { num: "03", title: "MOTION IDENTITY", desc: "Physics-based interaction design that feels alive. We don't just move pixels, we give them weight and intent." },
-  { num: "04", title: "E-COMMERCE IMMERSION", desc: "High-conversion platforms wrapped in brutalist aesthetics. Sell out of stock while breaking the internet." }
+  { num: "01", title: "DIGITAL ARCHITECTURE", desc: "We architect bespoke, high-performance web applications engineered for scalability and ruthless conversion. No templates, zero compromises." },
+  { num: "02", title: "WEBGL & SHADERS", desc: "We melt GPUs to forge 60fps cinematic 3D experiences. We build immersive visual narratives that instantly separate you from your competitors." },
+  { num: "03", title: "MOTION IDENTITY", desc: "Physics-based interaction design that grips attention. We don't just move pixels—we direct user behavior and drive aggressive engagement." },
+  { num: "04", title: "E-COMMERCE IMMERSION", desc: "High-ticket conversion platforms wrapped in brutalist aesthetics. Designed specifically to maximize AOV and sell out inventory." }
 ];
 
-export function Services() {
+export function Services({ setShowMesh }: { setShowMesh?: (val: number) => void }) {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Fade the background mesh in briefly after entering, then fade it out quickly (stays for a very brief scroll)
+  const meshOpacity = useTransform(scrollYProgress, [0, 0.1, 0.3, 0.4], [0, 1, 1, 0]);
+  
+  useMotionValueEvent(meshOpacity, "change", (latest) => {
+    if (setShowMesh) setShowMesh(latest);
+  });
+
   return (
-    <section className="py-32 md:py-48 px-8 md:px-24 max-w-7xl mx-auto relative z-20 pointer-events-auto ">
+    <section ref={sectionRef} className="py-32 md:py-48 px-8 md:px-24 max-w-7xl mx-auto relative z-20 pointer-events-auto ">
       <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
         
         {/* Header Column */}
@@ -21,11 +36,11 @@ export function Services() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="sticky top-48"
           >
-            <h2 className="font-display text-[8vw] lg:text-[4vw] leading-[0.8] font-bold uppercase tracking-tighter text-metallic mb-8">
+            <h2 className="font-display text-[8vw] lg:text-[4vw] leading-[1.1] font-bold uppercase tracking-tighter text-metallic mb-8 pb-4">
               Core<br/><span className="italic text-secondary">Competencies.</span>
             </h2>
             <p className="text-zinc-300 text-xl font-normal">
-              Our studio operates at the absolute edge of web capabilities. We do not do standard.
+              We operate at the absolute edge of web capabilities. We don't just build sites; we engineer dominant market positions that command premium pricing.
             </p>
           </motion.div>
         </div>
