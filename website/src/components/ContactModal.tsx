@@ -22,9 +22,26 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     if (!formData.name || !formData.email || !formData.budget) return;
     
     try {
-      // You can add your Web3Forms logic here later
-      // For now, it proceeds directly to the calendar
-      setStep(2);
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "df3f41c7-7738-4a16-9ed5-d29862062fab",
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          budget: formData.budget,
+          subject: "New High-Ticket Lead from Forgelync"
+        }),
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        setStep(2);
+      }
     } catch (error) {
       console.error("Form submission failed:", error);
       setStep(2);
