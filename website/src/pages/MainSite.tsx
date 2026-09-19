@@ -125,7 +125,7 @@ function MainSite() {
         />
 
         {/* 3D WebGL Background (Transitions between images based on scroll, with an override for the mesh panel) */}
-        <motion.div className="fixed inset-0 z-0 pointer-events-none">
+        <motion.div className="fixed top-0 left-0 w-full h-[100dvh] md:h-screen z-0 pointer-events-none">
           <Canvas camera={{ position: [0, 0, 1], fov: 45 }} dpr={typeof window !== 'undefined' && window.innerWidth < 768 ? [0.5, 1] : [1, 1.5]}>
             <Suspense fallback={null}>
               <WebGLScene mouseX={mousePos.x} mouseY={mousePos.y} scrollProgress={scrollProgress} showMesh={showMesh} />
@@ -319,7 +319,7 @@ function MainSite() {
         <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] pointer-events-auto flex items-center p-1.5 bg-black/60 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl">
           <a 
             href="#architectures" 
-            className="bg-white text-black px-6 py-3.5 rounded-full font-mono text-[11px] font-bold uppercase tracking-widest shadow-lg flex-shrink-0"
+            className="bg-black text-white border border-white/20 px-6 py-3.5 rounded-full font-mono text-[11px] font-bold uppercase tracking-widest shadow-lg flex-shrink-0"
             onClick={(e) => {
               e.preventDefault();
               document.querySelector('#architectures')?.scrollIntoView({ behavior: 'smooth' });
@@ -329,7 +329,7 @@ function MainSite() {
           </a>
           <button 
             onClick={() => setIsContactOpen(true)} 
-            className="bg-transparent text-white px-6 py-3.5 rounded-full font-mono text-[11px] font-bold uppercase tracking-widest flex-shrink-0"
+            className="bg-black text-white border border-white/20 px-6 py-3.5 rounded-full font-mono text-[11px] font-bold uppercase tracking-widest flex-shrink-0"
           >
             Initiate
           </button>

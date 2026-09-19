@@ -72,7 +72,7 @@ export function ProjectList({ setIsHovering }: { setIsHovering: (val: boolean) =
                 navigate(project.link);
               }
             }}
-            className="flex justify-between items-center py-8 border-b border-white/20 cursor-none group"
+            className="flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-white/20 cursor-none group gap-2 md:gap-0"
             onMouseEnter={() => {
               setActiveImage(project.img);
               setIsHovering(true);
