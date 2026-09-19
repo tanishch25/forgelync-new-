@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight } from 'lucide-react';
-import { InlineWidget } from 'react-calendly';
+import Cal from '@calcom/embed-react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -165,21 +165,18 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                   {step === 2 && (
                     <motion.div 
-                      key="calendly"
+                      key="calcom"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      className="h-full w-full bg-white rounded-lg overflow-hidden -mx-2 md:mx-0"
+                      className="h-full w-full bg-white md:bg-[#1a1a1a] rounded-lg overflow-hidden -mx-2 md:mx-0"
                     >
-                      {/* 
-                        IMPORTANT: The calendar will appear as a blank white sheet or a 404 
-                        until you replace 'YOUR_CALENDLY_URL_HERE' with your real Calendly link!
-                      */}
-                      <InlineWidget 
-                        url="https://calendly.com/YOUR_CALENDLY_URL_HERE" 
-                        styles={{ height: '550px', width: '100%' }} 
-                        prefill={{
+                      <Cal 
+                        calLink="tanish-shetty-hfj4gf"
+                        style={{ width: "100%", height: "100%", overflow: "scroll" }}
+                        config={{
                           name: formData.name,
                           email: formData.email,
+                          theme: 'dark'
                         }}
                       />
                     </motion.div>
