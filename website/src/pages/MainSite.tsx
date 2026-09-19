@@ -34,7 +34,7 @@ function MainSite() {
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 0.8,
-      touchMultiplier: 2,
+      syncTouch: false, // Let mobile phones use native hardware scrolling
     });
 
     // Restore scroll position if returning from a template
@@ -126,7 +126,7 @@ function MainSite() {
 
         {/* 3D WebGL Background (Transitions between images based on scroll, with an override for the mesh panel) */}
         <motion.div className="fixed inset-0 z-0 pointer-events-none">
-          <Canvas camera={{ position: [0, 0, 1], fov: 45 }} dpr={[1, 1.5]}>
+          <Canvas camera={{ position: [0, 0, 1], fov: 45 }} dpr={typeof window !== 'undefined' && window.innerWidth < 768 ? [0.5, 1] : [1, 1.5]}>
             <Suspense fallback={null}>
               <WebGLScene mouseX={mousePos.x} mouseY={mousePos.y} scrollProgress={scrollProgress} showMesh={showMesh} />
             </Suspense>
