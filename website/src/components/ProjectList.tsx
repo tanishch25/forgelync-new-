@@ -3,9 +3,27 @@ import { motion, useSpring } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 const projects = [
-  { title: "NEXUS", client: "Real Estate Architecture", img: "/frames/0100.jpg", link: "/template-3" },
-  { title: "LUMINA", client: "Luxury Fragrance", img: "/lumina-preview.jpg", link: "/template-1" },
-  { title: "ECLIPSE", client: "Brutalist Web3", img: "/eclipse-preview.jpg", link: "/template-2" }
+  { 
+    title: "NEXUS", 
+    client: "Real Estate Architecture", 
+    desc: "A brutalist digital leasing experience built for high-end real estate.",
+    img: "/frames/0100.jpg", 
+    link: "/template-3" 
+  },
+  { 
+    title: "LUMINA", 
+    client: "Luxury Fragrance", 
+    desc: "Fluid typography and glass-morphism designed for ultra-luxury retail.",
+    img: "/lumina-preview.jpg", 
+    link: "/template-1" 
+  },
+  { 
+    title: "ECLIPSE", 
+    client: "Brutalist Web3", 
+    desc: "Aggressive motion and dark-mode aesthetics for Web3 protocols.",
+    img: "/eclipse-preview.jpg", 
+    link: "/template-2" 
+  }
 ];
 
 export function ProjectList({ setIsHovering }: { setIsHovering: (val: boolean) => void }) {
@@ -19,9 +37,9 @@ export function ProjectList({ setIsHovering }: { setIsHovering: (val: boolean) =
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 150); // offset by half of image width
-      cursorY.set(e.clientY - 200); // offset by half of image height
-      cursorRotate.set(((e.clientX / window.innerWidth) - 0.5) * 15); // Dynamic lean physics
+      cursorX.set(e.clientX - 150);
+      cursorY.set(e.clientY - 200);
+      cursorRotate.set(((e.clientX / window.innerWidth) - 0.5) * 15);
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
@@ -67,12 +85,11 @@ export function ProjectList({ setIsHovering }: { setIsHovering: (val: boolean) =
             key={i}
             onClick={() => {
               if (project.link) {
-                // Save scroll position before navigating away
                 sessionStorage.setItem('mainSiteScroll', window.scrollY.toString());
                 navigate(project.link);
               }
             }}
-            className="flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-white/20 cursor-none group gap-2 md:gap-0"
+            className="flex flex-col md:flex-row justify-between items-start md:items-center py-10 md:py-14 border-b border-white/20 cursor-none group gap-6 md:gap-0"
             onMouseEnter={() => {
               setActiveImage(project.img);
               setIsHovering(true);
@@ -82,15 +99,28 @@ export function ProjectList({ setIsHovering }: { setIsHovering: (val: boolean) =
               setIsHovering(false);
             }}
           >
-            <h3 className={`font-display font-bold text-4xl md:text-7xl text-metallic group-hover:translate-x-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${project.link ? 'group-hover:text-white' : ''}`}>
-              {project.title}
-            </h3>
-            <span className="font-mono text-sm tracking-widest text-white/50 group-hover:-translate-x-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] uppercase flex flex-col items-end gap-2">
-              <span>{project.client}</span>
-              <span className="font-serif italic text-metallic lowercase text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                enter live
+            {/* Title & Description */}
+            <div className="flex flex-col gap-3 md:group-hover:translate-x-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+              <h3 className={`font-display font-bold text-5xl md:text-7xl text-metallic ${project.link ? 'group-hover:text-white transition-colors duration-500' : ''}`}>
+                {project.title}
+              </h3>
+              <p className="text-zinc-400 font-light max-w-sm text-sm md:text-base leading-relaxed">
+                {project.desc}
+              </p>
+            </div>
+            
+            {/* CTA & Client */}
+            <div className="flex flex-col md:items-end gap-5 md:group-hover:-translate-x-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] mt-4 md:mt-0 w-full md:w-auto">
+              <span className="font-mono text-[10px] md:text-xs tracking-widest text-white/50 uppercase">
+                {project.client}
               </span>
-            </span>
+              <div className="inline-flex items-center justify-between md:justify-center gap-4 bg-transparent border border-white/30 px-6 py-4 rounded-full group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-500 w-full md:w-auto">
+                <span className="font-mono text-[11px] font-bold uppercase tracking-widest">
+                  Enter Live Architecture
+                </span>
+                <span className="text-lg leading-none font-light group-hover:translate-x-2 transition-transform duration-500">&rarr;</span>
+              </div>
+            </div>
           </div>
         ))}
       </div>
