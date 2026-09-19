@@ -13,6 +13,7 @@ import { CursorText } from '../components/CursorText';
 import { Expertise } from '../components/Expertise';
 import { Services } from '../components/Services';
 import { Process } from '../components/Process';
+import { ContactModal } from '../components/ContactModal';
 import { ArrowRight } from 'lucide-react';
 
 function MainSite() {
@@ -22,6 +23,7 @@ function MainSite() {
   const [isHovering, setIsHovering] = useState(false);
   const [isHoverCta, setIsHoverCta] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   // Initialize smooth scroll and restore position
   useEffect(() => {
@@ -280,6 +282,7 @@ function MainSite() {
               <div className="flex items-center gap-12 pointer-events-auto">
                 <Magnetic>
                   <button 
+                    onClick={() => setIsContactOpen(true)}
                     className="group relative px-6 py-4 md:px-12 md:py-6 border border-white/30 overflow-hidden cursor-none bg-transparent"
                     style={{ transform: 'translateZ(0)' }}
                     onMouseEnter={() => setIsHoverCta(true)}
@@ -312,6 +315,7 @@ function MainSite() {
             </div>
           </section>
 
+          <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
         </motion.div>
       </motion.div>
     </>
