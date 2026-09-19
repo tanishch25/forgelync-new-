@@ -169,38 +169,35 @@ function MainSite() {
                 </Magnetic>
               ))}
             </div>
-            <Magnetic>
-              <button 
-                className="group relative overflow-hidden flex items-center justify-center border border-white/40 bg-white/5 backdrop-blur-md text-white hover:text-black hover:border-white transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] px-6 py-3 md:px-8 md:py-3.5 rounded-full font-sans text-[13px] uppercase tracking-widest font-black cursor-none"
-                style={{ transform: 'translateZ(0)' }}
-                onMouseEnter={() => setIsHoverCta(true)}
-                onMouseLeave={() => setIsHoverCta(false)}
-                onMouseMove={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  setBtnMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-                }}
-                onClick={() => {
-                  window.scrollTo({
-                    top: document.body.scrollHeight,
-                    behavior: 'smooth'
-                  });
-                }}
-              >
-                <span className="relative z-10 transition-colors duration-700">Initiate</span>
-                {/* Inner clipped liquid metal puddle - replaced with sharp vector circle */}
-                <motion.div 
-                  className="absolute pointer-events-none bg-white z-0"
-                  animate={{ 
-                    x: btnMousePos.x - 100, 
-                    y: btnMousePos.y - 100,
-                    scale: isHoverCta ? 3 : 0,
-                    opacity: isHoverCta ? 1 : 0
+            <div className="hidden md:block">
+              <Magnetic>
+                <button 
+                  className="group relative overflow-hidden flex items-center justify-center border border-white/40 bg-white/5 backdrop-blur-md text-white hover:text-black hover:border-white transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] px-8 py-3.5 rounded-full font-sans text-[13px] uppercase tracking-widest font-black cursor-none"
+                  style={{ transform: 'translateZ(0)' }}
+                  onMouseEnter={() => setIsHoverCta(true)}
+                  onMouseLeave={() => setIsHoverCta(false)}
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    setBtnMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
                   }}
-                  style={{ width: 200, height: 200, top: 0, left: 0, borderRadius: '50%' }}
-                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                />
-              </button>
-            </Magnetic>
+                  onClick={() => setIsContactOpen(true)}
+                >
+                  <span className="relative z-10 transition-colors duration-700">Initiate</span>
+                  {/* Inner clipped liquid metal puddle */}
+                  <motion.div 
+                    className="absolute pointer-events-none bg-white z-0"
+                    animate={{ 
+                      x: btnMousePos.x - 100, 
+                      y: btnMousePos.y - 100,
+                      scale: isHoverCta ? 3 : 0,
+                      opacity: isHoverCta ? 1 : 0
+                    }}
+                    style={{ width: 200, height: 200, top: 0, left: 0, borderRadius: '50%' }}
+                    transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                  />
+                </button>
+              </Magnetic>
+            </div>
           </div>
         </nav>
 
@@ -317,6 +314,27 @@ function MainSite() {
         </motion.div>
         
         <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+
+        {/* Mobile-only floating bottom nav dock */}
+        <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] pointer-events-auto flex items-center p-1.5 bg-black/60 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl">
+          <a 
+            href="#architectures" 
+            className="bg-white text-black px-6 py-3.5 rounded-full font-mono text-[11px] font-bold uppercase tracking-widest shadow-lg flex-shrink-0"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#architectures')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Architectures
+          </a>
+          <button 
+            onClick={() => setIsContactOpen(true)} 
+            className="bg-transparent text-white px-6 py-3.5 rounded-full font-mono text-[11px] font-bold uppercase tracking-widest flex-shrink-0"
+          >
+            Initiate
+          </button>
+        </div>
+
       </motion.div>
     </>
   );
