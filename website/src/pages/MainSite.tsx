@@ -125,7 +125,7 @@ function MainSite() {
         />
 
         {/* 3D WebGL Background (Transitions between images based on scroll, with an override for the mesh panel) */}
-        <motion.div className="fixed top-0 left-0 w-full h-[100dvh] md:h-screen z-0 pointer-events-none">
+        <motion.div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
           <Canvas camera={{ position: [0, 0, 1], fov: 45 }} dpr={typeof window !== 'undefined' && window.innerWidth < 768 ? [0.5, 1] : [1, 1.5]}>
             <Suspense fallback={null}>
               <WebGLScene mouseX={mousePos.x} mouseY={mousePos.y} scrollProgress={scrollProgress} showMesh={showMesh} />
@@ -269,9 +269,9 @@ function MainSite() {
           </section>
 
           {/* S3: Call to Action (Shader is now fully on the Silk image) */}
-          <section className="min-h-[100vh] md:min-h-[150vh] flex flex-col justify-end pb-16 md:pb-32 px-8 md:px-24 max-w-7xl mx-auto pointer-events-none relative z-20 ">
+          <section className="min-h-[60vh] md:min-h-[150vh] flex flex-col justify-end pb-32 md:pb-32 px-8 md:px-24 max-w-7xl mx-auto pointer-events-none relative z-20">
             <div className="flex flex-col gap-16 py-8">
-              <h2 className="font-display font-bold text-[10vw] leading-[1.1] tracking-tighter text-metallic pb-4">
+              <h2 className="font-display font-bold text-6xl md:text-[10vw] leading-[1.1] tracking-tighter text-metallic pb-4">
                 Ready to break<br/>
                 <span className="italic font-serif font-light text-secondary">the internet?</span>
               </h2>
