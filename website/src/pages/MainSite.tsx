@@ -221,10 +221,10 @@ function MainSite() {
               }}
               className="py-4 w-full"
             >
-              <h1 className="font-display font-bold text-[13vw] md:text-[14vw] leading-[1.1] tracking-tighter text-metallic">
+              <h1 className="font-display font-bold text-[25vw] md:text-[14vw] leading-[1.1] tracking-tighter text-metallic">
                 {!loading && <TextReveal text="Digital" delay={0.2} />}
               </h1>
-              <h1 className="font-display font-bold text-[12vw] md:text-[13vw] leading-[1.1] tracking-tighter text-metallic md:indent-[4vw]">
+              <h1 className="font-display font-bold text-[15vw] md:text-[13vw] leading-[1.1] tracking-tighter text-metallic md:indent-[4vw]">
                 {!loading && <TextReveal text="Masterpieces." delay={0.4} />}
               </h1>
             </motion.div>
@@ -233,7 +233,7 @@ function MainSite() {
           {/* S2: The Shift (Manifesto) */}
           <section id="manifesto" className="min-h-[100vh] md:min-h-[150vh] flex flex-col justify-center px-8 md:px-24 max-w-7xl mx-auto text-right pointer-events-none relative z-20">
             <div className="ml-auto md:w-3/4 flex flex-col gap-12 py-8">
-              <h2 className="font-display font-bold text-4xl md:text-8xl leading-[1.1] tracking-tighter  text-metallic pb-4">
+              <h2 className="font-display font-bold text-5xl md:text-8xl leading-[1.1] tracking-tighter  text-metallic pb-4">
                 <ScrambleText text="We don't build" />
                 <br/>
                 <span className="italic font-serif font-light text-secondary">
