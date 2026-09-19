@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight } from 'lucide-react';
-import { InlineWidget } from 'react-calendly';
+
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -129,7 +129,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       <div className="flex flex-col gap-4 mt-4">
                         <label className="font-mono text-xs uppercase tracking-widest text-white/50">Capital Allocation (Budget)</label>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                          {['< $5k', '$5k - $15k', '$15k+'].map(val => (
+                          {['< $2k', '$2k - $5k', '$5k+'].map(val => (
                             <button
                               key={val}
                               type="button"
@@ -146,9 +146,9 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         <button 
                           type="submit"
                           disabled={!formData.name || !formData.email || !formData.budget}
-                          className="group flex items-center gap-4 bg-white text-black px-8 py-4 font-mono text-sm font-bold uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-200 transition-colors"
+                          className="group flex items-center gap-4 bg-white text-black px-8 py-4 font-mono text-sm font-bold uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-200 transition-colors pointer-events-auto"
                         >
-                          PROCEED TO BOOKING
+                          SUBMIT INITIATION
                           <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
                         </button>
                       </div>
@@ -157,20 +157,27 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
                   {step === 2 && (
                     <motion.div 
-                      key="calendly"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="h-full min-h-[500px]"
+                      key="success"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="h-full min-h-[500px] flex flex-col items-center justify-center text-center px-4"
                     >
-                      {/* You will replace this URL with your actual Calendly URL later */}
-                      <InlineWidget 
-                        url="https://calendly.com/acmesales" 
-                        styles={{ height: '100%', minHeight: '500px', width: '100%' }} 
-                        prefill={{
-                          name: formData.name,
-                          email: formData.email,
-                        }}
-                      />
+                      <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-8">
+                        <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                      </div>
+                      <h3 className="font-display text-3xl font-bold uppercase tracking-tighter text-metallic mb-4">
+                        PARAMETERS SECURED
+                      </h3>
+                      <p className="text-zinc-400 max-w-md mx-auto leading-relaxed">
+                        Your architecture request has been logged into our system. Our lead engineer will review your parameters and contact you shortly.
+                      </p>
+                      
+                      <button 
+                        onClick={onClose}
+                        className="mt-12 border border-white/20 text-white/50 hover:text-white hover:border-white px-8 py-3 font-mono text-xs uppercase tracking-widest transition-colors"
+                      >
+                        CLOSE SECURE CHANNEL
+                      </button>
                     </motion.div>
                   )}
 

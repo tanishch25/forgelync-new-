@@ -314,12 +314,12 @@ function MainSite() {
               </div>
             </div>
           </section>
-
-          <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
         </motion.div>
+        
+        <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       </motion.div>
     </>
   );
-}
+};
 
 export default MainSite;
