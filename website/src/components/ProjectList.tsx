@@ -32,7 +32,7 @@ export function ProjectList({ setIsHovering }: { setIsHovering: (val: boolean) =
       
       {/* Floating Image Cursor */}
       <motion.div
-        className="fixed top-0 left-0 w-[300px] h-[400px] pointer-events-none z-[90] overflow-hidden rounded-lg mix-blend-normal shadow-2xl"
+        className="fixed top-0 left-0 w-[300px] h-[400px] pointer-events-none z-[90] overflow-hidden rounded-lg mix-blend-normal shadow-2xl hidden md:block"
         style={{ x: cursorX, y: cursorY, rotate: cursorRotate }}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: activeImage ? 1 : 0, scale: activeImage ? 1 : 0.8 }}
@@ -82,7 +82,7 @@ export function ProjectList({ setIsHovering }: { setIsHovering: (val: boolean) =
               setIsHovering(false);
             }}
           >
-            <h3 className={`font-display font-bold text-5xl md:text-7xl text-metallic group-hover:translate-x-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${project.link ? 'group-hover:text-white' : ''}`}>
+            <h3 className={`font-display font-bold text-4xl md:text-7xl text-metallic group-hover:translate-x-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${project.link ? 'group-hover:text-white' : ''}`}>
               {project.title}
             </h3>
             <span className="font-mono text-sm tracking-widest text-white/50 group-hover:-translate-x-8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] uppercase flex flex-col items-end gap-2">

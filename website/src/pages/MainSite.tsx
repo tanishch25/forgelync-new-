@@ -234,9 +234,9 @@ function MainSite() {
           </section>
 
           {/* S2: The Shift (Manifesto) */}
-          <section id="manifesto" className="h-[150vh] flex flex-col justify-center px-8 md:px-24 max-w-7xl mx-auto text-right pointer-events-none relative z-20">
+          <section id="manifesto" className="min-h-[100vh] md:min-h-[150vh] flex flex-col justify-center px-8 md:px-24 max-w-7xl mx-auto text-right pointer-events-none relative z-20">
             <div className="ml-auto md:w-3/4 flex flex-col gap-12 py-8">
-              <h2 className="font-display font-bold text-[8vw] md:text-8xl leading-[1.1] tracking-tighter  text-metallic pb-4">
+              <h2 className="font-display font-bold text-4xl md:text-8xl leading-[1.1] tracking-tighter  text-metallic pb-4">
                 <ScrambleText text="We don't build" />
                 <br/>
                 <span className="italic font-serif font-light text-secondary">
@@ -272,7 +272,7 @@ function MainSite() {
           </section>
 
           {/* S3: Call to Action (Shader is now fully on the Silk image) */}
-          <section className="h-[150vh] flex flex-col justify-end pb-16 md:pb-32 px-8 md:px-24 max-w-7xl mx-auto pointer-events-none relative z-20 ">
+          <section className="min-h-[100vh] md:min-h-[150vh] flex flex-col justify-end pb-16 md:pb-32 px-8 md:px-24 max-w-7xl mx-auto pointer-events-none relative z-20 ">
             <div className="flex flex-col gap-16 py-8">
               <h2 className="font-display font-bold text-[10vw] leading-[1.1] tracking-tighter text-metallic pb-4">
                 Ready to break<br/>

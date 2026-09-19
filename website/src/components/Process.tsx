@@ -27,7 +27,7 @@ export function Process() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="process" className="py-32 md:py-48 px-8 md:px-24 max-w-7xl mx-auto relative z-20 pointer-events-auto">
+    <section id="process" className="py-16 md:py-48 px-6 md:px-24 max-w-7xl mx-auto relative z-20 pointer-events-auto">
       <div className="flex flex-col gap-24">
         {/* Header */}
         <motion.div
@@ -36,7 +36,7 @@ export function Process() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display text-[8vw] lg:text-[4vw] leading-[1.1] font-bold uppercase tracking-tighter text-metallic mb-6">
+          <h2 className="font-display text-5xl md:text-[8vw] lg:text-[4vw] leading-[1.1] font-bold uppercase tracking-tighter text-metallic mb-6">
             Our <span className="italic text-secondary">Roadmap.</span>
           </h2>
           <p className="text-zinc-400 text-xl md:text-2xl font-light max-w-2xl">
