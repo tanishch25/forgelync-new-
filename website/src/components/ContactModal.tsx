@@ -170,9 +170,12 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       animate={{ opacity: 1, x: 0 }}
                       className="h-full w-full bg-white rounded-lg overflow-hidden -mx-2 md:mx-0"
                     >
-                      {/* Calendly Integration Restored */}
+                      {/* 
+                        IMPORTANT: The calendar will appear as a blank white sheet or a 404 
+                        until you replace 'YOUR_CALENDLY_URL_HERE' with your real Calendly link!
+                      */}
                       <InlineWidget 
-                        url="https://calendly.com/acmesales" 
+                        url="https://calendly.com/YOUR_CALENDLY_URL_HERE" 
                         styles={{ height: '550px', width: '100%' }} 
                         prefill={{
                           name: formData.name,
