@@ -36,7 +36,7 @@ export function Services({ setShowMesh }: { setShowMesh?: (val: number) => void 
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="sticky top-48"
           >
-            <h2 className="font-display text-[8vw] lg:text-[4vw] leading-[1.1] font-bold uppercase tracking-tighter text-metallic mb-8 pb-4">
+            <h2 className="font-display text-5xl md:text-[8vw] lg:text-[4vw] leading-[1.1] font-bold uppercase tracking-tighter text-metallic mb-8 pb-4">
               Core<br/><span className="italic text-secondary">Competencies.</span>
             </h2>
             <p className="text-zinc-300 text-xl font-normal">
@@ -54,7 +54,7 @@ export function Services({ setShowMesh }: { setShowMesh?: (val: number) => void 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group flex flex-col py-12 border-b border-white/20 cursor-none"
+              className="group flex flex-col py-8 md:py-12 border-b border-white/20 cursor-none"
             >
               <div className="flex flex-col md:flex-row md:items-center gap-8 w-full">
                 <span className="font-mono text-xl text-white/30 group-hover:text-accent transition-colors duration-500">
@@ -64,8 +64,8 @@ export function Services({ setShowMesh }: { setShowMesh?: (val: number) => void 
                   {srv.title}
                 </h3>
               </div>
-              <div className="overflow-hidden h-0 group-hover:h-auto group-hover:mt-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 group-hover:opacity-100">
-                <p className="text-zinc-300 font-normal text-xl md:text-2xl max-w-2xl md:ml-[3.25rem] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100 ease-out">
+              <div className="overflow-hidden h-auto mt-6 md:mt-0 opacity-100 md:h-0 md:group-hover:h-auto md:group-hover:mt-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:opacity-0 md:group-hover:opacity-100">
+                <p className="text-zinc-300 font-normal text-xl md:text-2xl max-w-2xl md:ml-[3.25rem] transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500 delay-100 ease-out">
                   {srv.desc}
                 </p>
               </div>

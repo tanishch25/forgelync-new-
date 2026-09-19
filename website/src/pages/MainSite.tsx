@@ -106,7 +106,7 @@ function MainSite() {
         
         {/* Melting Metallic Cursor */}
         <motion.div 
-          className="fixed top-0 left-0 w-16 h-16 pointer-events-none z-[100] flex items-center justify-center melting-cursor"
+          className="fixed top-0 left-0 w-16 h-16 pointer-events-none z-[100] flex items-center justify-center melting-cursor hidden md:flex"
           style={{ x: blobX, y: blobY }}
           animate={{ scale: isHoverCta ? 0 : (isHovering ? 2.5 : 1), opacity: isHoverCta ? 0 : 1 }}
           transition={{ scale: { type: "spring", stiffness: 200, damping: 20, mass: 0.1 } }}
@@ -116,7 +116,7 @@ function MainSite() {
         
         {/* Cursor Core */}
         <motion.div 
-          className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-white pointer-events-none z-[101] mix-blend-difference"
+          className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-white pointer-events-none z-[101] mix-blend-difference hidden md:block"
           style={{ x: coreX, y: coreY }}
           animate={{ scale: isHovering ? 0 : 1 }}
           transition={{ scale: { type: "spring", stiffness: 700, damping: 30, mass: 0.1 } }}
@@ -124,7 +124,7 @@ function MainSite() {
 
         {/* 3D WebGL Background (Transitions between images based on scroll, with an override for the mesh panel) */}
         <motion.div className="fixed inset-0 z-0 pointer-events-none">
-          <Canvas camera={{ position: [0, 0, 1], fov: 45 }}>
+          <Canvas camera={{ position: [0, 0, 1], fov: 45 }} dpr={[1, 1.5]}>
             <Suspense fallback={null}>
               <WebGLScene mouseX={mousePos.x} mouseY={mousePos.y} scrollProgress={scrollProgress} showMesh={showMesh} />
             </Suspense>
@@ -132,7 +132,7 @@ function MainSite() {
         </motion.div>
 
         {/* Nav (Outside skewed container so it remains truly fixed) */}
-        <nav className="fixed top-0 w-full px-8 md:px-12 py-8 flex justify-between items-center  z-50 pointer-events-none">
+        <nav className="fixed top-0 w-full px-6 md:px-6 py-4 md:px-12 md:py-6 md:py-8 flex justify-between items-center  z-50 pointer-events-none">
           <Magnetic>
             <div className="font-display font-bold text-2xl tracking-tighter uppercase pointer-events-auto cursor-none">
               Forgelync.
@@ -169,7 +169,7 @@ function MainSite() {
             </div>
             <Magnetic>
               <button 
-                className="group relative overflow-hidden flex items-center justify-center border border-white/40 bg-white/5 backdrop-blur-md text-white hover:text-black hover:border-white transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] px-8 py-3.5 rounded-full font-sans text-[13px] uppercase tracking-widest font-black cursor-none"
+                className="group relative overflow-hidden flex items-center justify-center border border-white/40 bg-white/5 backdrop-blur-md text-white hover:text-black hover:border-white transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] px-6 py-3 md:px-8 md:py-3.5 rounded-full font-sans text-[13px] uppercase tracking-widest font-black cursor-none"
                 style={{ transform: 'translateZ(0)' }}
                 onMouseEnter={() => setIsHoverCta(true)}
                 onMouseLeave={() => setIsHoverCta(false)}
@@ -270,7 +270,7 @@ function MainSite() {
           </section>
 
           {/* S3: Call to Action (Shader is now fully on the Silk image) */}
-          <section className="h-[150vh] flex flex-col justify-end pb-32 px-8 md:px-24 max-w-7xl mx-auto pointer-events-none relative z-20 ">
+          <section className="h-[150vh] flex flex-col justify-end pb-16 md:pb-32 px-8 md:px-24 max-w-7xl mx-auto pointer-events-none relative z-20 ">
             <div className="flex flex-col gap-16 py-8">
               <h2 className="font-display font-bold text-[10vw] leading-[1.1] tracking-tighter text-metallic pb-4">
                 Ready to break<br/>
@@ -280,7 +280,7 @@ function MainSite() {
               <div className="flex items-center gap-12 pointer-events-auto">
                 <Magnetic>
                   <button 
-                    className="group relative px-12 py-6 border border-white/30 overflow-hidden cursor-none bg-transparent"
+                    className="group relative px-6 py-4 md:px-12 md:py-6 border border-white/30 overflow-hidden cursor-none bg-transparent"
                     style={{ transform: 'translateZ(0)' }}
                     onMouseEnter={() => setIsHoverCta(true)}
                     onMouseLeave={() => setIsHoverCta(false)}

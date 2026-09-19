@@ -19,7 +19,7 @@ export function Expertise() {
           
           {/* Panel 1: Intro Text */}
           <div className="w-[100vw] flex-shrink-0 h-full flex flex-col justify-center px-8 md:px-24 ">
-            <h2 className="font-display text-[8vw] font-bold leading-[0.9] tracking-tighter uppercase mb-8 text-metallic pb-4">
+            <h2 className="font-display text-5xl md:text-[8vw] font-bold leading-[0.9] tracking-tighter uppercase mb-8 text-metallic pb-4">
               Brand<br/><span className="text-secondary italic">Architecture.</span>
             </h2>
             <p className="text-2xl md:text-4xl font-normal max-w-3xl text-zinc-300 leading-relaxed">
@@ -29,7 +29,7 @@ export function Expertise() {
 
           {/* Panel 2: Spikes (Massive) */}
           <div className="w-[100vw] flex-shrink-0 h-full flex items-center justify-center px-4 md:px-12">
-            <div className="relative w-full h-[85vh] overflow-hidden">
+            <div className="relative w-full h-[60vh] md:h-[85vh] overflow-hidden">
               <motion.img 
                 src="/spikes.jpg" 
                 alt="Chrome Spikes" 
@@ -45,7 +45,7 @@ export function Expertise() {
 
           {/* Panel 3: Monolith (Massive) */}
           <div className="w-[100vw] flex-shrink-0 h-full flex items-center justify-center px-4 md:px-12">
-            <div className="relative w-full h-[85vh] overflow-hidden">
+            <div className="relative w-full h-[60vh] md:h-[85vh] overflow-hidden">
               <motion.img 
                 src="/monolith.jpg" 
                 alt="Cyber Monolith" 
@@ -62,14 +62,14 @@ export function Expertise() {
           {/* Panel 4: Text + Core (Split massive) */}
           <div className="w-[100vw] flex-shrink-0 h-full flex flex-col md:flex-row items-center justify-center px-8 md:px-12 gap-12">
             <div className="flex-1 ">
-              <h2 className="font-display text-[8vw] font-bold leading-[0.9] tracking-tighter uppercase mb-8 text-metallic pb-4">
+              <h2 className="font-display text-5xl md:text-[8vw] font-bold leading-[0.9] tracking-tighter uppercase mb-8 text-metallic pb-4">
                 The<br/><span className="text-secondary italic">Asset.</span>
               </h2>
               <p className="text-2xl md:text-4xl font-normal max-w-2xl text-zinc-300 leading-relaxed">
                 Your brand is your ultimate financial asset. We don't do fragmented services. We fuse elite strategy and motion design into a singular ecosystem built to close deals before you even speak.
               </p>
             </div>
-            <div className="flex-1 h-[85vh] w-full overflow-hidden">
+            <div className="flex-1 h-[60vh] md:h-[85vh] w-full overflow-hidden">
               <motion.img 
                 src="/core.jpg" 
                 alt="Glass Core" 
